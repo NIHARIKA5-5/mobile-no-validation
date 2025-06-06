@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile Number Validation</title>
+</head>
+<body>
+
+  <h2>Mobile Number Validation using JavaScript</h2>
+
+  <label for="mobile">Enter Mobile Number:</label>
+  <input type="text" id="mobile" placeholder="Enter 10 Digit Mobile Num">
+  <br><br>
+  <button onclick="validateMobile()">Validate</button>
+
+  <p id="result"></p>
+
+  <script>
+    function validateMobile() {
+      var mobile = document.getElementById("mobile").value.trim();
+      var result = document.getElementById("result");
+
+      // Clear previous message
+      result.textContent = "";
+
+      // Regex pattern for a valid 10-digit mobile number starting with 6-9
+      var pattern = /^[6-9]\d{9}$/;
+
+      if (mobile === "") {
+        result.textContent = "Please enter a mobile number.";
+      } else if (!pattern.test(mobile)) {
+        result.textContent = "Invalid mobile number. Must be 10 digits starting with 6-9.";
+      } else {
+        result.textContent = "Valid mobile number!";
+      }
+    }
+  </script>
+
+</body>
+</html>
